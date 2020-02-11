@@ -1,0 +1,3 @@
+{
+  "IdentityServerConnection": "Host=127.0.0.1;Port=5432;Username=postgres;Password=18351835;Database=IdentityServerDB;"
+}
