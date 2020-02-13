@@ -1,0 +1,47 @@
+﻿@model IdentityServer.Models.LoginViewModel
+@{
+    ViewData["Title"] = "Giriş";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <div class="col-lg-4 offset-lg-4">
+        <h3 class="basketTitle" style="padding-top: 40px !important; font-weight: 400;padding-bottom:30px;">
+            Hesabınıza Giriş Yapın
+        </h3>
+
+
+
+        <form asp-controller="Account" asp-action="Login" method="post" id="loginForm" autocomplete="off">
+            @Html.AntiForgeryToken()
+            <div class="row p-t-20 p-b-20">
+                <div class="col-md-12 p-b-10">
+                    <span asp-validation-for="Username" class="text-danger validMsg"></span>
+                    <input class="identity-input" placeholder="Email Adresiniz" type="email" asp-for="Username" style="max-height:100px" />
+                </div>
+                <div class="col-md-12">
+                    <span asp-validation-for="Password" class="text-danger validMsg"></span>
+                    <input class="identity-input" type="password" placeholder="Şifreniz" asp-for="Password" style="max-height:100px" />
+                    <div class="text-right">
+                        <a class="redText" href="/SifremiUnuttum">Şifremi Unuttum?</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="submit" class="identity-button identity-red-button f-z-15">Giriş Yap</button>
+                </div>
+                <div class="col-md-12 p-t-20">
+                    <button type="button" class="identity-button identity-gray-button f-z-15" onclick="window.location.href = '/KayitOl';">Üye Ol</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+
+
+
+
+
+

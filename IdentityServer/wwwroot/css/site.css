@@ -1,82 +1,114 @@
-﻿body {
-  margin-top: 65px;
+﻿
+.identity-radius-input {
+    height: 3.6rem;
+    padding: 1.65rem 2rem;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    font-weight: 400;
+    color: #7a7d82;
+    background-color: #fff;
+    border: 1px solid #b6b6b6;
+    border-radius: 15px;
+    margin-bottom: 0.3rem;
+    transition: all .3s;
+    width: 100%;
 }
-.navbar-header {
-  position: relative;
-  top: -4px;
+
+    .identity-radius-input:focus {
+        outline: none;
+        border-color: #ed1b24;
+    }
+
+
+
+.identity-input, .identity-input-nv {
+    height: 3.6rem;
+    padding: 1.65rem 2rem;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    font-weight: 400;
+    color: #7a7d82;
+    background-color: #fff;
+    border: 1px solid #b6b6b6;
+    margin-bottom: 1rem;
+    transition: all .3s;
+    width: 100%;
+    border-radius: 10px;
 }
-.navbar-brand > .icon-banner {
-  position: relative;
-  top: -2px;
-  display: inline;
+
+    .identity-input.has-error, .identity-radius-input.has-error {
+        background: url(/images/error.png) no-repeat right center;
+        background-position: center right 20px;
+    }
+
+    .identity-input.has-valid, .identity-radius-input.valid {
+        background: url(/images/checked.png) no-repeat right center;
+        background-position: center right 20px;
+    }
+
+        .identity-input.has-valid.no-v-image, .identity-radius-input.valid.no-v-image, .identity-input.has-error, .identity-radius-input.has-error {
+            background: none;
+            background-position: unset;
+        }
+
+.identity-button {
+    color: black;
+    text-transform: none;
+    border-radius: 10px;
+    width: 100%;
+    background: transparent;
+    border: 1px solid #ed1b24;
+    font-weight: 500;
+    padding: 5px 0px 5px 0px;
+    font-size: 14px;
 }
-.icon {
-  position: relative;
-  top: -10px;
+
+    .identity-button:hover {
+        text-decoration: none !important
+    }
+
+.identity-red-button {
+    background-color: #ed1b24;
+    color: #fff !important;
+    display: inline-block;
+    text-align: center;
 }
-.logged-out iframe {
-  display: none;
-  width: 0;
-  height: 0;
+
+    .identity-red-button:hover {
+        background-color: white;
+        color: #ed1b24 !important;
+        border: 1px solid #ed1b24;
+    }
+
+.identity-gray-button {
+    background-color: #c5c5c5;
+    border-color: #c5c5c5;
+    color: white;
 }
-.page-consent .client-logo {
-  float: left;
+
+    .identity-gray-button:hover {
+        color: black;
+        background-color: white;
+        border: 1px solid #c5c5c5;
+    }
+
+.identity-blue-button {
+    background-color: #4267b2;
+    border-color: #4267b2;
+    color: white;
 }
-.page-consent .client-logo img {
-  width: 80px;
-  height: 80px;
+
+    .identity-blue-button:hover {
+        color: black;
+        background-color: white;
+        border: 1px solid #4267b2;
+    }
+
+.validMsg {
+    margin-left: 20px;
+    font-size: 12px;
+    display: block;
 }
-.page-consent .consent-buttons {
-  margin-top: 25px;
-}
-.page-consent .consent-form .consent-scopecheck {
-  display: inline-block;
-  margin-right: 5px;
-}
-.page-consent .consent-form .consent-description {
-  margin-left: 25px;
-}
-.page-consent .consent-form .consent-description label {
-  font-weight: normal;
-}
-.page-consent .consent-form .consent-remember {
-  padding-left: 16px;
-}
-.grants .page-header {
-  margin-bottom: 10px;
-}
-.grants .grant {
-  margin-top: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid lightgray;
-}
-.grants .grant img {
-  width: 100px;
-  height: 100px;
-}
-.grants .grant .clientname {
-  font-size: 140%;
-  font-weight: bold;
-}
-.grants .grant .granttype {
-  font-size: 120%;
-  font-weight: bold;
-}
-.grants .grant .created {
-  font-size: 120%;
-  font-weight: bold;
-}
-.grants .grant .expires {
-  font-size: 120%;
-  font-weight: bold;
-}
-.grants .grant li {
-  list-style-type: none;
-  display: inline;
-}
-.grants .grant li:after {
-  content: ', ';
-}
-.grants .grant li:last-child:after {
-  content: '';
-}
+
+
+

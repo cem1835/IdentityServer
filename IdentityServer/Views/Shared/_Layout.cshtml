@@ -1,9 +1,18 @@
 ﻿
+
 <!DOCTYPE html>
 
 <html>
 <head>
+
+    <link href="~/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
     
+    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="~/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,5 +20,15 @@
     <title>J3M Identity Server </title>
 </head>
 <body>
+
+
+    <div class="page-wrapper">
+
+        <main class="main">
+            @RenderBody()
+        </main>
+
+
+    </div>
 </body>
 </html>
