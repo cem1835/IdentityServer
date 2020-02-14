@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{AE0D5296-A9B0-47A4-BB91-C2A170DBE062}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer.DataAccess", "IdentityServer.DataAccess\IdentityServer.DataAccess.csproj", "{714E8F50-F18A-40A4-A0A4-BA7B26DF92DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer.Business", "IdentityServer.DataAccess\IdentityServer.Business.csproj", "{714E8F50-F18A-40A4-A0A4-BA7B26DF92DD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer.Entities", "IdentityServer.Entities\IdentityServer.Entities.csproj", "{CBE78003-F8E5-4187-9BBC-8C813E8951F4}"
 EndProject

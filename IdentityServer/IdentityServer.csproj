@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\IdentityServer.DataAccess\IdentityServer.DataAccess.csproj" />
+    <ProjectReference Include="..\IdentityServer.DataAccess\IdentityServer.Business.csproj" />
     <ProjectReference Include="..\IdentityServer.Entities\IdentityServer.Entities.csproj" />
   </ItemGroup>
 </Project>
