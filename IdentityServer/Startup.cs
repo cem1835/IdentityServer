@@ -1,5 +1,6 @@
 ﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
+using DTemplate.Common.Authentication.ValidationAttributes;
 using IdentityServer.DataAccess;
 using IdentityServer.Entities;
 using Microsoft.AspNetCore.Builder;
@@ -41,9 +42,10 @@ namespace IdentityServer
 
             // Identity Server Configs
             services.BuildMyIdentityServer();
-            // end
-
+            
             services.AddAuthentication();
+
+            services.AddModelStateActionFilter();
         }
 
         public void Configure(IApplicationBuilder app)

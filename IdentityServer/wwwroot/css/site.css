@@ -110,5 +110,12 @@
     display: block;
 }
 
+.identity-validation {
+    color: red;
+    font-weight: 500;
+    font-size: 11px;
+    float: right;
+}
+
 
 

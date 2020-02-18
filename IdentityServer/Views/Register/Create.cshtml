@@ -3,3 +3,71 @@
     ViewData["Title"] = "Kayıt Ol";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12">
+            <h2 class="p-b-30 text-center">Hesabınızı Oluşturun</h2>
+        
+            
+            @if (ViewBag.Message != null)
+            {
+                <div class="col-md-12 text-center p-b-50">
+                    <span class="alert alert-warning text-center">@ViewBag.Message</span>
+                </div>
+            }
+
+
+            <form asp-action="Create" method="post" id="registerForm">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(x => x.Token)
+
+                <div class="form-group ">
+                    <span asp-validation-for="FullName" class="identity-validation"></span>
+                    <input type="text" asp-for="FullName" class="identity-radius-input" placeholder="İsim Soyisim">
+                </div>
+
+
+                <div class="form-group ">
+                    <span class="identity-validation" id="emailValidation" style="display: none;">Bu Mail Sistemde Kayıtlıdır.</span>
+                    <span asp-validation-for="Email" class="identity-validation"></span>
+                    <input asp-for="Email" class="identity-radius-input" placeholder="Email Adresi" onblur="EmailCheck();">
+                </div>
+
+
+                <div class="form-group ">
+                    <span asp-validation-for="PhoneNumber" class="identity-validation "></span>
+                    <input asp-for="PhoneNumber" class="identity-radius-input" placeholder="Tel  +90 (5XX) XXX XX XX">
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group ">
+                            <span asp-validation-for="Password" class="identity-validation validation-span-absolute"></span>
+                            <input type="password" asp-for="Password" class="identity-radius-input" placeholder="Şifre">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group ">
+                            <span asp-validation-for="RepeatPassword" class="identity-validation validation-span-absolute"></span>
+                            <input type="password" asp-for="RepeatPassword" class="identity-radius-input" placeholder="Şifreyi Tekrar Girin">
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <span asp-validation-for="Address" class="identity-validation"></span>
+                    <input asp-for="Address" class="identity-radius-input" placeholder="Adres">
+                </div>
+
+                @* TODO : ADD RECAPTCHA *@
+                @*<div id="recaptcha" class="g-recaptcha" data-sitekey="6LcKhr4UAAAAAPRygyliNd_RlgeEVA1ZVbNVXiCf"></div>*@
+
+                <button type="submit" class="identity-button identity-red-button">Hesap Oluştur</button>
+            </form>
+        </div>
+    </div>
+</div>

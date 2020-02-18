@@ -40,11 +40,7 @@ namespace IdentityServer.Models.RegisterModels
 
         public string Token { get; set; }
 
-        [Required]
 
-        public bool IsAcceptContract { get; set; }
-
-        public bool IsReceiveNews { get; set; }
 
 
     }
