@@ -1,6 +1,10 @@
 ﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
+using Autofac;
+using Autofac.Features.AttributeFilters;
 using DTemplate.Common.Authentication.ValidationAttributes;
+using DTemplate.Common.Mailing;
+using DTemplate.Common.Middlewares;
 using IdentityServer.DataAccess;
 using IdentityServer.Entities;
 using Microsoft.AspNetCore.Builder;
@@ -10,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Reflection;
 
 namespace IdentityServer
 {
@@ -26,27 +31,19 @@ namespace IdentityServer
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews()
-                    .AddRazorRuntimeCompilation();
-
-            // configures IIS out-of-proc settings (see https://github.com/aspnet/AspNetCore/issues/14882)
-            services.Configure<IISOptions>(iis =>
-            {
-                iis.AuthenticationDisplayName = "Windows";
-                iis.AutomaticAuthentication = false;
-            }).Configure<IISServerOptions>(iis =>
-            {
-                iis.AuthenticationDisplayName = "Windows";
-                iis.AutomaticAuthentication = false;
-            });
-
-            // Identity Server Configs
-            services.BuildMyIdentityServer();
-            
             services.AddAuthentication();
-
-            services.AddModelStateActionFilter();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            services.BuildMyIdentityServer(Configuration);
         }
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.UseSmtpMailSender(new SmtpConfiguration());
+            builder.RegisterType<ModelActionFilter>().WithAttributeFiltering();
+            builder.RegisterInstance(Configuration).As<IConfiguration>();
+
+        }
+
 
         public void Configure(IApplicationBuilder app)
         {
@@ -56,11 +53,11 @@ namespace IdentityServer
                 app.UseDatabaseErrorPage();
             }
 
+            app.UseMiddleware<ExceptionMiddleware>();
             app.UseStaticFiles();
             app.UseRouting();
             app.UseIdentityServer();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints => endpoints.MapDefaultControllerRoute());
         }
     }

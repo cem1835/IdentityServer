@@ -20,6 +20,9 @@ namespace IdentityServer.DataAccess.Contexts
         }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
+        public DbSet<Application> Applications { get; set; }
+        public DbSet<ApplicationConfiguration> MyProperty { get; set; }
+
 
     }
 }
